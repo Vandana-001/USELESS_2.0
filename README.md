@@ -35,4 +35,9 @@ nodemon index.js
 http://localhost:5001
 npm install -g nodemon
 Screenshots:
-<img width="1920" height="1020" alt="image" src="https://github.com/user-attachments/assets/42a2ac29-32a3-4f12-bfcc-b90b6232be95" />
+
+
+
+
+
+
