@@ -1,0 +1,235 @@
+:root {
+    --background-color: #121212;
+    --surface-color: #1e1e1e;
+    --primary-text: #ffffff;
+    --secondary-text: #b0b0b0;
+    --accent-color: #405de6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--primary-text);
+}
+
+nav {
+    background-color: var(--surface-color);
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #333;
+}
+
+.nav-wrapper {
+    max-width: 975px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-icons i {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-icons i:hover {
+    color: var(--accent-color);
+}
+
+main {
+    max-width: 975px;
+    margin: 80px auto 0;
+    padding: 20px;
+}
+
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    overflow: hidden;
+    animation: fadeIn 0.5s ease;
+}
+
+.post-header {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.post-header img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.post-image {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+}
+
+.post-actions {
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.post-actions i {
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.post-actions i:hover {
+    transform: scale(1.1);
+}
+
+.post-likes {
+    padding: 0 1rem;
+    font-weight: bold;
+}
+
+.post-caption {
+    padding: 0.5rem 1rem 1rem;
+    color: var(--secondary-text);
+}
+
+/* Upload Modal */
+.upload-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--surface-color);
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#uploadForm {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #5269ff;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fun animations */
+.liked {
+    animation: likeEffect 0.5s ease;
+    color: #ed4956;
+}
+
+.jumpscareOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.jumpscareImage {
+    max-width: 90%;
+    max-height: 90vh;
+    animation: jumpscare 0.5s ease;
+}
+
+@keyframes likeEffect {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes jumpscare {
+    0% {
+        transform: scale(0.1) rotate(-10deg);
+        filter: brightness(0);
+    }
+    50% {
+        transform: scale(1.2) rotate(5deg);
+        filter: brightness(1.5) contrast(1.5);
+    }
+    100% {
+        transform: scale(1) rotate(0);
+        filter: brightness(1);
+    }
+}
